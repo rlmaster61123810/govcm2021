@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRegisterareasTable extends Migration
+class CreateRegistrationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRegisterareasTable extends Migration
      */
     public function up()
     {
-        Schema::create('registerareas', function (Blueprint $table) {
+        Schema::create('registration', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('population_id');
             $table->tinyInteger('salesarea_id');
@@ -34,6 +34,6 @@ class CreateRegisterareasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('regeisterareas');
+        Schema::dropIfExists('registrations');
     }
 }
