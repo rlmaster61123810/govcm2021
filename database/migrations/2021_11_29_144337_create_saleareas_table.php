@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubareaTable extends Migration
+class CreateSaleareasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateSubareaTable extends Migration
      */
     public function up()
     {
-        Schema::create('subarea', function (Blueprint $table) {
+        Schema::create('saleareas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('subdistrict');
-            $table->string('district');
-            $table->string('province');
+            $table->string('area_size');
+            $table->string('area_price');
+            $table->integer('area_location');
+            $table->string('reservation');
+
+
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateSubareaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subarea');
+        Schema::dropIfExists('saleareas');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRegeisterareaTable extends Migration
+class CreateRegisterareasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRegeisterareaTable extends Migration
      */
     public function up()
     {
-        Schema::create('regeisterarea', function (Blueprint $table) {
+        Schema::create('registerareas', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('population_id');
             $table->tinyInteger('salesarea_id');
@@ -23,9 +23,6 @@ class CreateRegeisterareaTable extends Migration
             $table->date('expire_date');
             $table->string('status_payment');
             $table->date('payment_date');
-
-
-
             $table->timestamps();
         });
     }
@@ -37,6 +34,6 @@ class CreateRegeisterareaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('regeisterarea');
+        Schema::dropIfExists('regeisterareas');
     }
 }

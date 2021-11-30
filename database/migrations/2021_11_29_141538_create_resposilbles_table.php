@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVocationaltrainingTable extends Migration
+class CreateResposilblesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateVocationaltrainingTable extends Migration
      */
     public function up()
     {
-        Schema::create('vocationaltraining', function (Blueprint $table) {
+        Schema::create('resposilbles', function (Blueprint $table) {
             $table->id();
+            $table->string('community_id');
             $table->string('name');
-            $table->date('trainfirst_date');
-            $table->date('trainlast_date');
+            $table->string('community_leader');
+            $table->string('leader_phone');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateVocationaltrainingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vocationaltraining');
+        Schema::dropIfExists('resposilbles');
     }
 }

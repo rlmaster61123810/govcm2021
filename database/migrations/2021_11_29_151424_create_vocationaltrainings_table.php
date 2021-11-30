@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSaleareaTable extends Migration
+class CreateVocationaltrainingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateSaleareaTable extends Migration
      */
     public function up()
     {
-        Schema::create('salearea', function (Blueprint $table) {
+        Schema::create('vocationaltrainings', function (Blueprint $table) {
             $table->id();
-            $table->string('area_size');
-            $table->string('area_price');
-            $table->integer('area_location');
-            $table->string('reservation');
-
-
+            $table->string('name');
+            $table->date('trainfirst_date');
+            $table->date('trainlast_date');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateSaleareaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salearea');
+        Schema::dropIfExists('vocationaltrainings');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResposilbleTable extends Migration
+class CreateSubareasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateResposilbleTable extends Migration
      */
     public function up()
     {
-        Schema::create('resposilble', function (Blueprint $table) {
+        Schema::create('subareas', function (Blueprint $table) {
             $table->id();
-            $table->string('community_id');
             $table->string('name');
-            $table->string('community_leader');
-            $table->string('leader_phone');
+            $table->string('subdistrict');
+            $table->string('district');
+            $table->string('province');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateResposilbleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resposilble');
+        Schema::dropIfExists('subareas');
     }
 }
