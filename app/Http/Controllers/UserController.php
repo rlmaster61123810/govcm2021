@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index($id)
     {
-        $posts = Post::where('user_id,$id')->orderBy('id', 'desc')->paginate(10);
+        $posts = Post::where('user_id,$id')->orderBy('id', 'desc')->paginate(5);
         $data = [
             'posts' => $posts,
         ];
