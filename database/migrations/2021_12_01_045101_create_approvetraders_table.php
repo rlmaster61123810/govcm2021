@@ -22,8 +22,6 @@ class CreateApprovetradersTable extends Migration
             $table->date('approve_pass');
             $table->string('name_approve');
             $table->string('status');
-
-            $table->timestamps();
         });
     }
 

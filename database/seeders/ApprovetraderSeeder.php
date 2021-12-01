@@ -14,8 +14,5 @@ class ApprovetraderSeeder extends Seeder
     public function run()
     {
         //
-
-
-
     }
 }
