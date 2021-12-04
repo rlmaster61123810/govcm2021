@@ -25,3 +25,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // register
 Route::get('/register', '\App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('register');
+// admin_layouts
+Route::get('/admin_layout', '\App\Http\Controllers\Admin_layoutController@index')->name('admin_layout');

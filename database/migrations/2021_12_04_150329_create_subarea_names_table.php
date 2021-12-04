@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResposilblesTable extends Migration
+class CreateSubareaNamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateResposilblesTable extends Migration
      */
     public function up()
     {
-        Schema::create('resposilbles', function (Blueprint $table) {
+        Schema::create('subarea_names', function (Blueprint $table) {
             $table->id();
-            $table->integer('community_id');
-            $table->string('community_leader');
-            $table->string('leader_phone');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateResposilblesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resposilbles');
+        Schema::dropIfExists('subarea_names');
     }
 }
