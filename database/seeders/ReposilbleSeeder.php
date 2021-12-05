@@ -13,10 +13,10 @@ class ReposilbleSeeder extends Seeder
      */
     public function run()
     {
-        // $reposilble= new \App\Models\Resposilble();
-        // $reposilble->community_id = '01';
-        // $reposilble->community_leader = "นางจตุพร วิชัยยา ";
-        // $reposilble->leader_phone = "082-2218150";
-        // $reposilble->save();
+        $reposilble= new \App\Models\Resposilble();
+        $reposilble->community_id = '01';
+        $reposilble->community_leader = "นางจตุพร วิชัยยา ";
+        $reposilble->leader_phone = "082-2218150";
+        $reposilble->save();
     }
 }

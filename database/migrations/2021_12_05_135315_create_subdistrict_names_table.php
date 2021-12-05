@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubareaNamesTable extends Migration
+class CreateSubdistrictNamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSubareaNamesTable extends Migration
      */
     public function up()
     {
-        Schema::create('subarea_names', function (Blueprint $table) {
+        Schema::create('subdistrict_names', function (Blueprint $table) {
             $table->id();
             $table->string('name');
         });
@@ -26,6 +26,6 @@ class CreateSubareaNamesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subarea_names');
+        Schema::dropIfExists('subdistrict_names');
     }
 }

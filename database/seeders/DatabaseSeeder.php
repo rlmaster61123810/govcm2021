@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SubareaSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(VocationaltrainingSeeder::class);
+        $this->call(Subarea_NameSeeder::class);
     }
 }
