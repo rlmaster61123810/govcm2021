@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class ApprovetradersSeeder extends Seeder
+class Approvetrader_NameSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,9 +20,7 @@ class ApprovetradersSeeder extends Seeder
             ['product_name' => 'สมุนไพร ไม่ใช่อาหาร'],
             ['product_name' => 'เสื้อผ้าเครื่องแต่งกาย'],
             ['product_name' => 'อื่นๆ'],
-
-
         ];
-            \App\Models\Approvetrader::insert($data);
+        \App\Models\Approvetader_name::insert($data);
     }
 }

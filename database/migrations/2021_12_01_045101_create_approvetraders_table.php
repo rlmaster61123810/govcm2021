@@ -17,7 +17,6 @@ class CreateApprovetradersTable extends Migration
             $table->id();
             $table->string('population_id');
             $table->string('product_type');
-            $table->string('product_name');
             $table->date('approve_day');
             $table->date('approve_pass');
             $table->string('name_approve');
