@@ -19,12 +19,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         #intro {
-            background-image: url(https://mdbootstrap.com/img/new/fluid/city/008.jpg);
+            background-image: url("{{ asset('images/2.jpg') }}");
+
             height: 100vh;
         }
 
@@ -62,8 +66,7 @@
                 <div class="pull-left mgL15px">
                     <h5 class="fontPrompt slogan">ระบบงานส่งเสริมอาชีพพัฒนาชุมชนเทศบาลนครเชียงใหม่ </h5>
                     <h6 class="fontPrompt eng-slogan">
-                        The Working System to Support Career Development in the
-                        Community of Chiang Mai's Municipality</h6>
+                        Career supporting System to Develop Chiang Mai Municipality</h6>
                 </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -103,7 +106,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
