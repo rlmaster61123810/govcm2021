@@ -38,11 +38,11 @@
         .navbar .nav-link {
             color: rgb(0, 0, 0) !important;
         }
+
         /* add fontPrompt */
         body {
             font-family: 'Prompt', sans-serif;
         }
-
 
     </style>
 
@@ -55,17 +55,16 @@
             <div class="container">
                 {{-- make logo image and name --}}
                 <a class="navbar-brand" href="{{ url('/') }}">
-
                     {{-- logo name --}}
-                    <img src="https://lh3.googleusercontent.com/proxy/QeNWi2eAZhpY7MIVo2oFIqwIL-MY3jMVaOGJV9PXDc2T9y4km3fIqb445zG5FrJjddoLFhy_ckfw2jFTiquTGuuNGJRUte63gnNEP9CR7aoO-bKyuaVH_7GQvIHC"
-                    alt="logo" width="100" height="100" class="img-responsive pull-left width70px">
-                    <a class="navbar-brand" href="{{ url('/') }}"></a>
-                    <div class="pull-left mgL15px">
-                        <h5 class="fontPrompt slogan">ระบบงานส่งเสริมอาชีพพัฒนาชุมชนเทศบาลนครเชียงใหม่ </h5>
-                        <h6 class="fontPrompt eng-slogan">
-                            The Working System to Support Career Development in the
-                            Community of Chiang Mai's Municipality</h6>
-                    </div>
+                    <img src='images/logo_govcm.png' alt="logo" width="100px">
+                </a>
+                <a class="navbar-brand" href="{{ url('/') }}"></a>
+                <div class="pull-left mgL15px">
+                    <h5 class="fontPrompt slogan">ระบบงานส่งเสริมอาชีพพัฒนาชุมชนเทศบาลนครเชียงใหม่ </h5>
+                    <h6 class="fontPrompt eng-slogan">
+                        The Working System to Support Career Development in the
+                        Community of Chiang Mai's Municipality</h6>
+                </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -83,13 +82,13 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                           {{-- @if (Route::has('login'))
+                            {{-- @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
-                            @endif  --}}
+                            @endif --}}
 
-                           @if (Route::has('register'))
+                            @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
@@ -104,7 +103,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
