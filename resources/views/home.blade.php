@@ -1,6 +1,5 @@
 @extends('layouts.app')
-{{-- <div class="btn"> <span class="fas fa-bars"></span> </div>
-<nav class="sidebar">
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -19,5 +18,4 @@
             </div>
         </div>
     </div>
-    </nav>
-@endsection --}}
+@endsection
