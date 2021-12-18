@@ -39,7 +39,7 @@ sidebar sidebar-dark accordion" id="accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">จัดการข้อมูลผู้ใช้งาน</h6>
                 <a class="collapse-item" href="{{ route('users.index') }}">รายการผู้ใช้งาน</a>
-                <a class="collapse-item" href="cards.html">เพิ่มผู้ใช้งาน</a>
+                <a class="collapse-item" href="{{route('users.create')}}">เพิ่มผู้ใช้งาน</a>
             </div>
         </div>
     </li>
