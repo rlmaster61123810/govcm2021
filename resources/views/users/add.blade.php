@@ -48,7 +48,7 @@
                             </span>
                         @enderror
                     </div>
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                         <label for="role">สถานะ</label>
                         <select class="form-control form-control-user @error('role') is-invalid @enderror" id="role"
                             name="role">
@@ -61,7 +61,7 @@
                             <option value="admin">Admin</option>
                             <option value="user">User</option>
                         </select>
-                    </div> --}}
+                    </div>
                     <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                 </form>
             </div>

@@ -14,11 +14,10 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = new \App\Models\User();
-        $user->user_type_id = 1;
         $user->name = "อาจารย์แดง";
         $user->email = "mistidea9@gmail.com";
         $user->password = bcrypt('123456');
-        $user->username = "admin";
+        $user->user_Type = "0";
         $user->save();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\User_type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -31,7 +32,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.add');
+        $user_types = User_type::all();
+
+        $data = [
+            'user_types' => $user_types,
+        ];
+        return view('users.add', $data);
     }
 
     /**
@@ -42,34 +48,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
-        try {
-            DB::beginTransaction();
-            // logic for save User Data
-
-            $create_user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make('password')
-            ]);
-
-            if (!$create_user) {
-                DB::rollBack();
-
-                return back()->with('error', 'Something went wrong while saving user data.');
-            }
-
-            DB::commit();
-            return redirect()->route('users.index')->with('success', 'User stored successfully.');
-
-        } catch (Throwable $th) {
-            DB::rollBack();
-            throw $th;
-        }
+        $users = new User(); //INSERT
+        $users->name = request()->name;
+        $users->email = request()->email;
+        $users->password = request()->password;
+        $users->user_Type = 0;
+        $users->save();
+        return redirect('/');
     }
 
     /**
