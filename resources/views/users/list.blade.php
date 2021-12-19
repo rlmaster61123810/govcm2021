@@ -28,15 +28,42 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>ประเภทผู้ใช้งาน</th>
+                                <th>จัดการ</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
                                 <tr>
+                                    {{-- 1, 2, ..., n --}}
+                                    <td>{{ $loop->iteration }}</td>
+                                    {{-- Name --}}
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
+
+                                    <td>
+                                        @if ($user->status == 'ADMIN')
+                                            <span class="badge badge-danger">แอดมิน</span>
+                                        @else
+                                            <span class="badge badge-success">ผู้ใช้งานทั่วไป</span>
+                                        @endif
+                                    <td>
+                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-sm">
+                                            <i class="fa fa-edit"></i>
+                                            แก้ไข
+                                        </a>
+                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash"></i>
+                                                ลบ
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                         </tbody>
                         @endforeach

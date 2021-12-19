@@ -40,8 +40,9 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror"
-                            name="password" placeholder="กรอก Password อย่างน้อย 6 ตัวอักษร">
+                        <input type="password"
+                            class="form-control form-control-user @error('password') is-invalid @enderror" name="password"
+                            placeholder="กรอก Password อย่างน้อย 6 ตัวอักษร">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -49,17 +50,14 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="role">สถานะ</label>
-                        <select class="form-control form-control-user @error('role') is-invalid @enderror" id="role"
-                            name="role">
-                            @error('role')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                        <label for="role">สถานะ</label>@error('role')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                         @enderror
-                            <option value="">เลือกสถานะ</option>
-                            <option value="admin">Admin</option>
-                            <option value="user">User</option>
+                        <select name="status" class="form-control form-control-user @error('role') is-invalid @enderror">
+                            <option value="ADMIN">Admin</option>
+                            <option value="USER">User</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>

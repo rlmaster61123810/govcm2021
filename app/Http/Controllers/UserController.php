@@ -54,9 +54,9 @@ class UserController extends Controller
         $users->name = request()->name;
         $users->email = request()->email;
         $users->password = request()->password;
-        $users->status =  0;
+        $users->status =  request()->status;
         $users->save();
-        return redirect('/');
+        return redirect('/users');
     }
 
     /**
