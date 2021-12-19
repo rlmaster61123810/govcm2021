@@ -11,6 +11,10 @@ use Throwable;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,11 +22,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::select('id', 'name', 'email')->get();
+        $users = User::select('id', 'name', 'email', 'status')->get();
 
-        return view('users.list')->with([
-            'users' => $users
-        ]);
+        return view('users.list', compact('users'));
     }
 
     /**
@@ -32,10 +34,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        $user_types = User_type::all();
+        $user_type = User_type::all();
 
         $data = [
-            'user_types' => $user_types,
+            'user_types' => $user_type,
         ];
         return view('users.add', $data);
     }
@@ -46,13 +48,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         $users = new User(); //INSERT
         $users->name = request()->name;
         $users->email = request()->email;
         $users->password = request()->password;
-        $users->user_Type = 0;
+        $users->status =  0;
         $users->save();
         return redirect('/');
     }
