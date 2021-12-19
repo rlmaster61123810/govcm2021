@@ -76,9 +76,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($user_id)
     {
-        //
+        $user_type = User_type::all();
+        $users = User::find($user_id);
+
+        $data = [
+            'user_types' => $user_type,
+            'users' => $users
+        ];
+        return view('users.edit', $data);
     }
 
     /**
@@ -88,11 +95,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
-        //
+        $users = User::find(request()->id);
+        $users->name = request()->name;
+        $users->email = request()->email;
+        $users->password = request()->password;
+        $users->status =  request()->status;
+        $users->save();
+        return redirect('/users');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -101,6 +113,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // SELECT * FROM Users WHERE User_id = '$id';
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/users');
     }
 }

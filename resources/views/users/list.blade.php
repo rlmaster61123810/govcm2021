@@ -58,10 +58,10 @@
                                         <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="fa fa-trash"></i>
-                                                ลบ
-                                            </button>
+                                            {{-- alert confirm logout --}}
+                                            <a onclick="return confirm('คุณต้องการลบผู้ใช้งานนี้ใช่หรือไม่?')" href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash">ลบ</i>
+
                                         </form>
                                     </td>
                                 </tr>
