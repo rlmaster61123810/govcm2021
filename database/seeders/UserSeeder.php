@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     {
         $user = new \App\Models\User();
         $user->name = "อาจารย์แดง";
-        $user->email = "mistidea9@gmail.com";
+        $user->email = "mist@gmail.com";
         $user->password = bcrypt('123456');
         $user->status =  "ADMIN";
         $user->save();
