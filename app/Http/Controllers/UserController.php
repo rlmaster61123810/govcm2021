@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         $users = User::select('id', 'name', 'email', 'status')->get();
 
-        return view('users.list', compact('users'));
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -51,12 +51,13 @@ class UserController extends Controller
     public function store()
     {
         $users = new User(); //INSERT
+
         $users->name = request()->name;
         $users->email = request()->email;
-        $users->password = request()->password;
+        $users->password = bcrypt(request()->password);
         $users->status =  request()->status;
         $users->save();
-        return redirect('/users');
+        return redirect('/');
     }
 
     /**
@@ -79,11 +80,11 @@ class UserController extends Controller
     public function edit($user_id)
     {
         $user_type = User_type::all();
-        $users = User::find($user_id);
+        $user = User::find($user_id);
 
         $data = [
             'user_types' => $user_type,
-            'users' => $users
+            'user' => $user
         ];
         return view('users.edit', $data);
     }
@@ -95,15 +96,40 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update($id)
     {
-        $users = User::find(request()->id);
+        $rules = [
+            'name' => 'required',
+            'email' => 'required',
+            'status' => 'required',
+        ];
+
+        // if password is not empty
+        if (request()->password) {
+            $rules['password'] = 'min:6|confirmed';
+        }
+
+        // Transalete validation to Thai language
+        $message = [
+            'required' => 'กรุณากรอก :attribute',
+            'min' => 'กรุณากรอก :attribute มากกว่า :min ตัวอักษร',
+            'confirmed' => 'กรุณากรอกรหัสผ่านให้ตรงกัน',
+        ];
+
+        // validate
+        $this->validate(request(), $rules, $message);
+
+        $users = User::find($id);
         $users->name = request()->name;
         $users->email = request()->email;
-        $users->password = request()->password;
+        if(request()->has('password')){
+            $users->password = bcrypt(request()->password);
+        }
+        $users->password = bcrypt(request()->password);
         $users->status =  request()->status;
         $users->save();
-        return redirect('/users');
+        // redirect to route name users.index
+        return redirect('/users')->with('success', 'แก้ไขข้อมูลสำเร็จ');
     }
     /**
      * Remove the specified resource from storage.
