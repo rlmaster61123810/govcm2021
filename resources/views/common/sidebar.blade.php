@@ -110,13 +110,11 @@ sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="nav-link collapsePagesFour" href="#" data-toggle="collapse" data-target="#collapsePagesFour" aria-expanded="true"
                 aria-controls="collapsePagesFour">
                 <i class="fas fa-fw fa-folder"></i>
-                <span>ข้อมูลเข้าร่วมอบรม</span>
+                <span>ข้อมูลโครงการอบรม</span>
             </a>
             <div id="collapsePagesFour" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">จัดการข้อมูลเข้าร่วมอบรม</h6>
-                    <a class="collapse-item" href="login.html">รายการผู้เข้าร่วมอบรม</a>
-                    <a class="collapse-item" href="register.html">เพิ่มผู้เข้าร่วมอบรม</a>
+                    <h6 class="collapse-header">จัดการข้อมูลโครงการอบรม</h6>
                     <a class="collapse-item" href="login.html">รายการโครงการ</a>
                     <a class="collapse-item" href="register.html">เพิ่มโครงการ</a>
                 </div>
