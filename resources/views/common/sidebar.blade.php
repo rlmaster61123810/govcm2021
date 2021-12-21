@@ -61,7 +61,7 @@ sidebar sidebar-dark accordion" id="accordionSidebar">
      <div id="collapsePagesTwo" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
          <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">จัดการข้อมูลชุมชน</h6>
-            <a class="collapse-item" href="#">รายการชุมชน</a>
+            <a class="collapse-item" href="{{ route('communitys.index') }}">รายการผู้ใช้งาน</a>
             <a class="collapse-item" href="#">เพิ่มชุมชน</a>
             <a class="collapse-item" href="#">รายการสมาชิกชุมชน</a>
             <a class="collapse-item" href="#">เพิ่มสมาชิกชุมชน</a>
