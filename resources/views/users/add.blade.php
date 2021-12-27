@@ -1,5 +1,5 @@
 @extends('layouts.master')
-z
+
 @section('content')
     <div class="container-fluid">
 

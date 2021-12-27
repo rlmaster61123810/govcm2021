@@ -7,11 +7,17 @@ use Illuminate\Http\Request;
 
 class Community_nameController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function index()
     {
-        $community_name = \App\Models\Community_name::all();
+        $community_names = \App\Models\Community_name::all();
 
-        return view('community_name.index', compact('community_name'));
+        return view('community_name.index', compact('community_names'));
     }
     public function create()
     {
@@ -19,24 +25,24 @@ class Community_nameController extends Controller
     }
     public function store()
     {
-        $community_name = new \App\Models\Community_name(); //INSERT
+        $community_names = new \App\Models\Community_name(); //INSERT
 
-        $community_name->name = request()->name;
-        $community_name->save();
+        $community_names->name = request()->name;
+        $community_names->save();
         return redirect('/');
     }
     public function edit($community_id)
     {
-        $community_name = \App\Models\Community_name::find(request()->id);
+        $community_names = \App\Models\Community_name::find(request()->id);
 
         return view('community_name.edit', compact('community_name'));
     }
     public function update($community_id)
     {
-        $community_name = \App\Models\Community_name::find(request()->id);
+        $community_names = \App\Models\Community_name::find(request()->id);
 
-        $community_name->name = request()->name;
-        $community_name->save();
+        $community_names->name = request()->name;
+        $community_names->save();
         return redirect('/');
     }
     public function destroy($id)

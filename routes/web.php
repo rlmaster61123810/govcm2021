@@ -29,6 +29,13 @@ Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'des
 
 //Community_name
 Route::get('/community_name', [App\Http\Controllers\Community_nameController::class, 'index'])->name('community_name.index');
+Route::get('/community_name/create', [App\Http\Controllers\Community_nameController::class, 'create'])->name('community_name.create');
+Route::post('/community_name', [App\Http\Controllers\Community_nameController::class, 'store'])->name('community_name.store');
+Route::get('/community_name/{community_name}', [App\Http\Controllers\Community_nameController::class, 'show'])->name('community_name.show');
+Route::get('/community_name/{community_name}/edit', [App\Http\Controllers\Community_nameController::class, 'edit'])->name('community_name.edit');
+Route::put('/community_name/{community_name}', [App\Http\Controllers\Community_nameController::class, 'update'])->name('community_name.update');
+Route::delete('/community_name/{community_name}', [App\Http\Controllers\Community_nameController::class, 'destroy'])->name('community_name.destroy');
+
 
 
 
