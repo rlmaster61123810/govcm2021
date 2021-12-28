@@ -26,35 +26,37 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>ที่</th>
                                 <th>ชื่อชุมชน</th>
-                                <th>จังหวัด</th>
-                                <th>อำเภอ</th>
-                                <th>ตำบล</th>
-                                <th>จำนวนสมาชิก</th>
+                                <th>แขวง</th>
                                 <th>จัดการ</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($community_names as $community_name)
+                            @foreach ($communities as $community)
                                 <tr>
-                                    <td>{{ $community_name->name }}</td>
-                                    <td>{{ $community_name->province }}</td>
-                                    <td>{{ $community_name->amphur }}</td>
-                                    <td>{{ $community_name->district }}</td>
-                                    <td>{{ $community_name->members->count() }}</td>
+                                    {{-- 1, 2, ..., n --}}
+                                    <td>{{ $loop->iteration }}</td>
+                                    {{-- ชื่อชุมชน --}}
+                                    <td>{{ $community->name }}</td>
+                                    {{-- แขวง --}}
+                                    <td>{{ $community->sub_district }}</td>
+                                    {{-- จัดการ --}}
                                     <td>
-                                        <a href="{{ route('community_names.edit', $community_name->id) }}"
-                                            class="btn btn-warning btn-sm">
-                                            <i class="fas fa-edit"></i>
-                                            แก้ไข
+                                        <a href="{{ route('community_names.show', $community->id) }}"
+                                            class="btn btn-info btn-circle btn-sm">
+                                            <i class="fas fa-info-circle"></i>
                                         </a>
-                                        <form action="{{ route('community_names.destroy', $community_name->id) }}"
-                                            method="POST" class="d-inline">
+                                        <a href="{{ route('community_names.edit', $community->id) }}"
+                                            class="btn btn-warning btn-circle btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form action="{{ route('community_names.destroy', $community->id) }}"
+                                            method="post" class="d-inline">
                                             @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">
+                                            @method('delete')
+                                            <button class="btn btn-danger btn-circle btn-sm">
                                                 <i class="fas fa-trash"></i>
-                                                ลบ
                                             </button>
                                         </form>
                                     </td>

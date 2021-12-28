@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateApprovetradersTable extends Migration
+class CreateApprovalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateApprovetradersTable extends Migration
      */
     public function up()
     {
-        Schema::create('approvetraders', function (Blueprint $table) {
+        Schema::create('approvals', function (Blueprint $table) {
             $table->id();
             $table->integer('population_id');
             $table->interger('product_type_id');
@@ -25,6 +25,7 @@ class CreateApprovetradersTable extends Migration
                 'approved',
                 'rejected',
             ])->default('pending');
+            $table->timestamps();
         });
     }
 
@@ -35,6 +36,6 @@ class CreateApprovetradersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('approvetraders');
+        Schema::dropIfExists('approvals');
     }
 }

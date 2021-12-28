@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Community_name;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('community_names.index');
+        $communities = Community_name::all();
+        return view('community_names.index', ['communities' => $communities]);
     }
 }
