@@ -29,6 +29,8 @@ class Subarea_NameSeeder extends Seeder
             ['name' => 'หนองหอย'],
             ['name' => 'ช้างเผือก'],
         ];
+
+
         \App\Models\Subarea_name::insert($data);
     }
 }

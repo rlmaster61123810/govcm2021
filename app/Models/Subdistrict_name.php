@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subdistrict_name extends Model
 {
-    use HasFactory;
+    public function subdistrict_name(){
+        return $this->hasMany(\App\Model\Subdistrict_name::class);
+    }
 }

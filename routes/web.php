@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
 Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
@@ -39,7 +37,8 @@ Route::delete('/community_name/{community_name}', [App\Http\Controllers\Communit
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('community_name.index');
 // login
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 

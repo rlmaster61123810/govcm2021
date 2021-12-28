@@ -33,7 +33,7 @@ class Community_nameController extends Controller
     }
     public function edit($community_id)
     {
-        $community_names = \App\Models\Community_name::find(request()->id);
+        $community_name = \App\Models\Community_name::find(request()->id);
 
         return view('community_name.edit', compact('community_name'));
     }
