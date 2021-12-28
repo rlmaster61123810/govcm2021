@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateApprovetaderNamesTable extends Migration
+class CreateCommunitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateApprovetaderNamesTable extends Migration
      */
     public function up()
     {
-        Schema::create('approvetader_names', function (Blueprint $table) {
+        Schema::create('communities', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name');
-
+            $table->timestamps();
         });
     }
 
@@ -27,6 +26,6 @@ class CreateApprovetaderNamesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('approvetader_names');
+        Schema::dropIfExists('communities');
     }
 }

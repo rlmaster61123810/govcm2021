@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSaleareasTable extends Migration
+class CreateSaleAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,10 @@ class CreateSaleareasTable extends Migration
     {
         Schema::create('saleareas', function (Blueprint $table) {
             $table->id();
-            $table->string('area_size');
-            $table->string('area_price');
-            $table->integer('area_location');
+            $table->string('size');
+            $table->string('price');
+            $table->integer('location_id');
             $table->string('reservation');
-
-
             $table->timestamps();
         });
     }
