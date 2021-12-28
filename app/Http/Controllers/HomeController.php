@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('community_name.index');
+        return view('community_names.index');
     }
 }

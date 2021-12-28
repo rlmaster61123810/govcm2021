@@ -7,50 +7,54 @@ use Illuminate\Http\Request;
 
 class Community_nameController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    public function index()
-    {
-        $community_names = \App\Models\Community_name::all();
-
-        return view('community_name.index', compact('community_names'));
-    }
+   public function index()
+   {
+      $community_names = Community_name::all();
+      return view('community_names.index', compact('community_names'));
+   }
+//Display a listing of the resource
     public function create()
     {
-        return view('community_name.add');
+        return view('community_names.create');
     }
-    public function store()
+//Store a newly created resource in storage
+    public function store(Request $request)
     {
-        $community_names = new \App\Models\Community_name(); //INSERT
-
-        $community_names->name = request()->name;
+        $community_names = new Community_name();
+        $community_names->name = $request->name;
         $community_names->save();
-        return redirect('/');
+        return redirect('/community_names');
     }
-    public function edit($community_id)
+//Display the specified resource
+    public function show($id)
     {
-        $community_name = \App\Models\Community_name::find(request()->id);
-
-        return view('community_name.edit', compact('community_name'));
+        $community_names = Community_name::find($id);
+        return view('community_names.show', compact('community_names'));
     }
-    public function update($community_id)
+//Show the form for editing the specified resource
+    public function edit($id)
     {
-        $community_names = \App\Models\Community_name::find(request()->id);
-
-        $community_names->name = request()->name;
+        $community_names = Community_name::find($id);
+        return view('community_names.edit', compact('community_names'));
+    }
+//Update the specified resource in storage
+    public function update(Request $request, $id)
+    {
+        $community_names = Community_name::find($id);
+        $community_names->name = $request->name;
         $community_names->save();
-        return redirect('/');
+        return redirect('/community_names');
     }
+//Remove the specified resource from storage
     public function destroy($id)
     {
-        // SELECT * FROM Users WHERE User_id = '$id';
-        $community = Community_name::find($id);
-        $community->delete();
-        return redirect('/users');
+        $community_names = Community_name::find($id);
+        $community_names->delete();
+        return redirect('/community_names');
     }
+
+
+
+
 
 }
